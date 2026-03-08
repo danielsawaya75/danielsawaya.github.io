@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Daniel Steven Sawaya</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="logo" href="index.html">D S</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="contact">
+      <h1>Contact</h1>
+
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+        <label><input type="text" name="name" placeholder="Name" required></label>
+        <label><input type="email" name="_replyto" placeholder="Email" required></label>
+        <label><textarea name="message" placeholder="Message" required></textarea></label>
+        <button type="submit" class="btn">Send</button>
+      </form>
+
+      <p>Or email directly: <a href="mailto:danielsawaya75@gmail.com">danielsawaya75@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year5"></span> Daniel Steven Sawaya</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
