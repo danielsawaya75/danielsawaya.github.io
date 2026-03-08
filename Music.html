@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Music — Daniel Steven Sawaya</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="logo" href="index.html">D S</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="controls">
+        <button id="theme-toggle-3" class="theme-toggle">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="music" class="music-section">
+      <h1>Music</h1>
+      <div class="player">
+        <audio id="audio" controls preload="none">
+          <source src="assets/audio/track1.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <div class="playlist">
+          <button data-src="assets/audio/track1.mp3">Echoes</button>
+          <button data-src="assets/audio/track2.mp3">Track 2</button>
+        </div>
+      </div>
+
+      <h2>Embeds</h2>
+      <div class="embeds">
+        <!-- optional: paste SoundCloud or YouTube embeds here -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year3"></span> Daniel Steven Sawaya</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
