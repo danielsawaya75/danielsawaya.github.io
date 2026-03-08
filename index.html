@@ -3,66 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Sawaya | Official Site</title>
+    <title>Daniel Sawaya | World of ShadowWalker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: #050505;
-            color: #ffffff;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Background Video Placeholder (Giza na Glow) */
+        .hero {
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            border: 5px solid #00f2ff; /* Border ya nje ya neon */
-        }
-        .profile-card {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80'); /* Tech background */
+            background-size: cover;
+            background-position: center;
             text-align: center;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 15px;
-            box-shadow: 0 0 50px rgba(0, 242, 255, 0.2);
+            border-bottom: 2px solid #00f2ff;
         }
+
         h1 {
-            font-size: 3.5rem;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            margin: 0;
-            color: #fff;
+            font-size: 4rem;
+            letter-spacing: 15px;
+            text-shadow: 0 0 20px #00f2ff;
+            margin-bottom: 10px;
         }
-        .neon {
+
+        .subtitle {
+            font-size: 1rem;
             color: #00f2ff;
-            text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
-        }
-        .glitch {
-            font-family: monospace;
-            color: #888;
-            letter-spacing: 2px;
-        }
-        .btn {
-            margin-top: 20px;
-            padding: 10px 25px;
-            background: transparent;
-            color: #00f2ff;
-            border: 1px solid #00f2ff;
-            cursor: pointer;
+            letter-spacing: 5px;
+            margin-bottom: 30px;
             text-transform: uppercase;
+        }
+
+        /* Section ya Miradi (The Mission) */
+        .projects {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid #00f2ff;
+            padding: 20px;
+            margin-bottom: 20px;
             transition: 0.3s;
         }
-        .btn:hover {
-            background: #00f2ff;
-            color: #000;
-            box-shadow: 0 0 20px #00f2ff;
+
+        .project-card:hover {
+            background: rgba(0, 242, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .status-online { color: #00ff00; font-size: 0.8rem; }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            font-size: 0.7rem;
+            color: #444;
+            letter-spacing: 3px;
         }
     </style>
 </head>
 <body>
-    <div class="profile-card">
-        <h1>DANIEL <span class="neon">SAWAYA</span></h1>
-        <p class="glitch">// NETWORK ENGINEER & ELECTRONICS DEVELOPER</p>
-        <p>Welcome to the World of ShadowWalker.</p>
-        <button class="btn">View Projects</button>
-    </div>
+
+    <section class="hero">
+        <p class="status-online">// SYSTEM ONLINE: DANIEL STEVEN SAWAYA</p>
+        <h1>SAWAYA</h1>
+        <div class="subtitle">IT Specialist | ShadowWalker Founder</div>
+        <p style="max-width: 600px; color: #888; font-family: monospace;">
+            Solving complex networking issues and building advanced electronic systems. 
+            Member of Arusha Technical College.
+        </p>
+    </section>
+
+    <section class="projects">
+        <h2 style="margin-bottom: 40px; letter-spacing: 5px;">ACTIVE MISSIONS</h2>
+        
+        <div class="project-card">
+            <h3>01. Gas & Alcohol Detector</h3>
+            <p style="color: #888; font-family: monospace;">Advanced sensor integration using Arduino MQ-2 & MQ-3 modules.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>02. Automatic Temp Control</h3>
+            <p style="color: #888; font-family: monospace;">NTC Thermistor logic for overheat prevention systems.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>03. Network Architecture</h3>
+            <p style="color: #888; font-family: monospace;">IPv4 Subnetting & Magic Number optimization protocols.</p>
+        </div>
+    </section>
+
+    <footer>
+        DESIGNED BY SHADOWWALKER // © 2026 // JOIN THE MOVEMENT
+    </footer>
+
 </body>
 </html>
