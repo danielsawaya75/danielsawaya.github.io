@@ -1,321 +1,660 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniel Sawaya | World of ShadowWalker</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body{
-    background:black;
-    color:#fff;
-    font-family:'Orbitron', sans-serif;
-    overflow-x:hidden;
-    scroll-behavior: smooth;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Sawaya | IT Specialist & Innovator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-/* -------------------- Matrix Background -------------------- */
-#matrix{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:-1;
-}
+        /* ==================== MATRIX BACKGROUND ==================== */
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
 
-/* -------------------- Loading Screen -------------------- */
-#loader{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:black;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    color:#00ff9c;
-    z-index:9999;
-}
-#loader .logo{
-    font-size:80px;
-    border:2px solid #00ff9c;
-    padding:20px 40px;
-    animation: pulse 1.5s infinite;
-    letter-spacing: 15px;
-}
-@keyframes pulse{
-    0% { transform:scale(1); opacity:1; }
-    50% { transform:scale(1.2); opacity:0.6; }
-    100% { transform:scale(1); opacity:1; }
-}
-#loader p{ margin-top:20px; font-size:18px; font-family:monospace; }
+        /* ==================== NAVIGATION ==================== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+            z-index: 100;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-/* -------------------- Login Portal -------------------- */
-#login-screen{
-    position:fixed;
-    width:100%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    color:#00ff9c;
-    font-family:Orbitron;
-    z-index:10;
-    opacity:0;
-    transition: opacity 1s ease;
-}
-#login-screen input{
-    background:black;
-    border:1px solid #00ff9c;
-    color:#00ff9c;
-    margin:10px;
-    padding:10px;
-    width:250px;
-}
-#login-screen button{
-    background:#00ff9c;
-    color:black;
-    padding:10px 20px;
-    cursor:pointer;
-    margin-top:10px;
-}
-#status{
-    margin-top:20px;
-    font-size:18px;
-    font-family:monospace;
-}
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #00f2ff;
+            text-transform: uppercase;
+        }
 
-/* -------------------- Hero Section -------------------- */
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80'); 
-    background-size: cover;
-    background-position: center;
-    text-align:center;
-    border-bottom:2px solid #00f2ff;
-    opacity:0;
-    transform: translateY(50px);
-    transition: opacity 1s ease, transform 1s ease, background 1s ease;
-}
-h1.hero-text{
-    font-size:4rem;
-    letter-spacing:15px;
-    text-shadow:0 0 20px #00f2ff;
-    margin-bottom:10px;
-    cursor:pointer;
-}
-.hero-text:hover{
-    animation: encryptHover 1s forwards;
-}
-@keyframes encryptHover{
-    0%{opacity:1;}
-    50%{opacity:0.2; transform:translateX(5px);}
-    100%{opacity:1; transform:translateX(0);}
-}
-.subtitle{
-    font-size:1rem;
-    color:#00f2ff;
-    letter-spacing:5px;
-    margin-bottom:30px;
-    text-transform:uppercase;
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
 
-/* -------------------- Projects -------------------- */
-.projects{
-    padding:100px 20px;
-    max-width:1200px;
-    margin:auto;
-    opacity:0;
-    transform: translateY(50px);
-    transition: opacity 1s ease, transform 1s ease, background 1s ease;
-}
-.project-card{
-    background: rgba(255,255,255,0.03);
-    border-left:4px solid #00f2ff;
-    padding:20px;
-    margin-bottom:20px;
-    transition: all 0.4s ease;
-}
-.project-card:hover{
-    background: rgba(0,242,255,0.2);
-    transform: translateX(10px) scale(1.02) rotate(-1deg);
-    box-shadow: 0 0 20px #00ff9c;
-}
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
 
-/* -------------------- Footer -------------------- */
-footer{
-    text-align:center;
-    padding:50px;
-    font-size:0.7rem;
-    color:#444;
-    letter-spacing:3px;
-    opacity:0;
-    transform: translateY(50px);
-    transition: opacity 1s ease, transform 1s ease, background 1s ease;
-}
-</style>
+        nav a:hover {
+            color: #00f2ff;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00f2ff;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 242, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 255, 156, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        h1.hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 700;
+            letter-spacing: 8px;
+            color: #fff;
+            text-shadow: 0 0 40px rgba(0, 242, 255, 0.5);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #fff, #00f2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            color: #00f2ff;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 400;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: #aaa;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 2px solid #00f2ff;
+            color: #00f2ff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #00f2ff;
+            z-index: -1;
+            transition: left 0.4s ease;
+        }
+
+        .cta-button:hover {
+            color: #000;
+            left: 0;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about {
+            padding: 150px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            color: #fff;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #00f2ff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            color: #00f2ff;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .about-text p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        /* ==================== PROJECTS SECTION ==================== */
+        .projects {
+            padding: 150px 50px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 15, 30, 0.8) 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            padding: 40px 30px;
+            border-radius: 5px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), transparent);
+            transition: top 0.4s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover::before {
+            top: 0;
+        }
+
+        .project-card:hover {
+            border-color: #00f2ff;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 242, 255, 0.2);
+        }
+
+        .project-number {
+            font-size: 3rem;
+            color: #00f2ff;
+            opacity: 0.3;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .project-card p {
+            color: #999;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* ==================== SKILLS SECTION ==================== */
+        .skills {
+            padding: 150px 50px;
+            background: #000;
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .skill-item {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(0, 242, 255, 0.1);
+            border-color: #00f2ff;
+            transform: scale(1.05);
+        }
+
+        .skill-item p {
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* ==================== NEWSLETTER ==================== */
+        .newsletter {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), rgba(0, 255, 156, 0.05));
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #00f2ff;
+            color: #fff;
+            border-radius: 3px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+        }
+
+        .newsletter-form button {
+            padding: 15px 40px;
+            background: #00f2ff;
+            color: #000;
+            border: none;
+            border-radius: 3px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .newsletter-form button:hover {
+            background: #00ff9c;
+            transform: scale(1.05);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            border-top: 1px solid rgba(0, 242, 255, 0.2);
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: #00f2ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00ff9c;
+            transform: scale(1.2);
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-top: 30px;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                margin-top: 120px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            h1.hero-title {
+                font-size: clamp(2rem, 8vw, 4rem);
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .projects, .skills, .about, .newsletter {
+                padding: 80px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Matrix Background Canvas -->
+    <canvas id="matrix"></canvas>
 
-<!-- Matrix Background -->
-<canvas id="matrix"></canvas>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">DS</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#newsletter">Contact</a></li>
+        </ul>
+    </nav>
 
-<!-- Loading Screen -->
-<div id="loader">
-    <div class="logo">DS</div>
-    <p>INITIALIZING SYSTEM...</p>
-</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Daniel Sawaya</h1>
+            <div class="hero-subtitle">IT Specialist • Innovator</div>
+            <p class="hero-desc">
+                Building advanced electronic systems and solving complex networking challenges. 
+                Member of Arusha Technical College.
+            </p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </section>
 
-<!-- Login Screen -->
-<div id="login-screen">
-    <h1>SHADOWWALKER SYSTEM</h1>
-    <input id="user" type="text" placeholder="USERNAME OR EMAIL">
-    <input id="pass" type="password" placeholder="PASSWORD">
-    <button onclick="login()">SIGN IN</button>
-    <p id="status"></p>
-</div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>From Bedroom to Pro</h3>
+                <p>
+                    I started my journey in tech out of pure passion for electronics and networking. 
+                    What began as tinkering with Arduino boards evolved into a mission to solve real-world problems.
+                </p>
+                <p>
+                    Today, I focus on creating innovative solutions that bridge the gap between hardware and software, 
+                    with a specialization in IoT systems and network architecture.
+                </p>
+            </div>
+            <div class="about-text">
+                <h3>My Philosophy</h3>
+                <p>
+                    Innovation isn't just about building cool stuff—it's about understanding people's needs 
+                    and creating solutions that genuinely improve their lives.
+                </p>
+                <p>
+                    Every project is an opportunity to learn, grow, and push the boundaries of what's possible 
+                    with modern technology.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<!-- Main Website Content -->
-<section class="hero">
-    <p class="status-online">// SYSTEM ONLINE: DANIEL STEVEN SAWAYA</p>
-    <h1 class="hero-text">SAWAYA</h1>
-    <div class="subtitle">IT Specialist | ShadowWalker Founder</div>
-    <p style="max-width: 600px; color: #888; font-family: monospace;">
-        Solving complex networking issues and building advanced electronic systems. 
-        Member of Arusha Technical College.
-    </p>
-</section>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">Active Missions</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-number">01</div>
+                <h3>Gas & Alcohol Detector</h3>
+                <p>Advanced sensor integration using Arduino MQ-2 & MQ-3 modules for real-time air quality monitoring.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-number">02</div>
+                <h3>Automatic Temp Control</h3>
+                <p>NTC Thermistor logic for overheat prevention systems with intelligent thermal management.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-number">03</div>
+                <h3>Network Architecture</h3>
+                <p>IPv4 Subnetting & Magic Number optimization protocols for enterprise-level infrastructure.</p>
+            </div>
+        </div>
+    </section>
 
-<section class="projects">
-    <h2 style="margin-bottom: 40px; letter-spacing: 5px;">ACTIVE MISSIONS</h2>
-    
-    <div class="project-card">
-        <h3>01. Gas & Alcohol Detector</h3>
-        <p style="color: #888; font-family: monospace;">Advanced sensor integration using Arduino MQ-2 & MQ-3 modules.</p>
-    </div>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item"><p>Arduino</p></div>
+            <div class="skill-item"><p>IoT Systems</p></div>
+            <div class="skill-item"><p>Networking</p></div>
+            <div class="skill-item"><p>Electronics</p></div>
+            <div class="skill-item"><p>IP Subnetting</p></div>
+            <div class="skill-item"><p>Sensor Integration</p></div>
+            <div class="skill-item"><p>Web Dev</p></div>
+            <div class="skill-item"><p>Problem Solving</p></div>
+        </div>
+    </section>
 
-    <div class="project-card">
-        <h3>02. Automatic Temp Control</h3>
-        <p style="color: #888; font-family: monospace;">NTC Thermistor logic for overheat prevention systems.</p>
-    </div>
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter">
+        <h2>Join My Community</h2>
+        <p style="margin-bottom: 30px; color: #aaa;">Get updates on new projects and tech insights</p>
+        <form class="newsletter-form" onsubmit="return handleNewsletter(event)">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
 
-    <div class="project-card">
-        <h3>03. Network Architecture</h3>
-        <p style="color: #888; font-family: monospace;">IPv4 Subnetting & Magic Number optimization protocols.</p>
-    </div>
-</section>
+    <!-- Footer -->
+    <footer>
+        <h3>Let's Connect</h3>
+        <div class="social-links">
+            <a href="https://github.com/danielsawaya75" target="_blank">GitHub</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="mailto:contact@example.com">Email</a>
+        </div>
+        <p>© 2026 DANIEL SAWAYA • BUILDING THE FUTURE</p>
+    </footer>
 
-<footer>
-    DESIGNED BY SHADOWWALKER // © 2026 // JOIN THE MOVEMENT
-</footer>
+    <script>
+        // ==================== MATRIX BACKGROUND ====================
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-<script>
-// -------------------- Matrix Background --------------------
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%";
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = [];
-for(let x=0;x<columns;x++){ drops[x]=1; }
-function drawMatrix(){
-    ctx.fillStyle="rgba(0,0,0,0.05)";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle="#00ff9c";
-    ctx.font = fontSize+"px monospace";
-    for(let i=0;i<drops.length;i++){
-        const text = letters[Math.floor(Math.random()*letters.length)];
-        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-        if(drops[i]*fontSize>canvas.height && Math.random()>0.975) drops[i]=0;
-        drops[i]++;
-    }
-}
-setInterval(drawMatrix,33);
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = [];
 
-// -------------------- Loading Screen --------------------
-window.addEventListener("load",function(){
-    setTimeout(function(){
-        document.getElementById("loader").style.display="none";
-        document.getElementById("login-screen").style.opacity="1";
-    },3000);
-});
-
-// -------------------- Login Encryption/Decryption --------------------
-function randomText(length){
-    const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%";
-    let result="";
-    for(let i=0;i<length;i++){ result+=chars[Math.floor(Math.random()*chars.length)]; }
-    return result;
-}
-function login(){
-    const status = document.getElementById("status");
-    let steps=0;
-    const interval=setInterval(()=>{
-        status.innerText = "ENCRYPTING: "+randomText(20);
-        steps++;
-        if(steps==10){
-            clearInterval(interval);
-            decrypt();
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
         }
-    },120);
-}
-function decrypt(){
-    const status = document.getElementById("status");
-    status.innerText="DECRYPTING USER DATA...";
-    setTimeout(()=>{
-        status.innerText="ACCESS GRANTED";
-        setTimeout(()=>{
-            document.getElementById("login-screen").style.display="none";
-            fadeInSections();
-        },1200);
-    },1500);
-}
 
-// -------------------- Hero text hover encryption effect --------------------
-const heroText = document.querySelector(".hero-text");
-const original = heroText.innerText;
-heroText.addEventListener("mouseenter", ()=>{
-    let iteration=0;
-    const interval = setInterval(()=>{
-        heroText.innerText = heroText.innerText.split("").map((letter,index)=>{
-            if(index<iteration) return original[index];
-            return letters[Math.floor(Math.random()*letters.length)];
-        }).join("");
-        iteration += 1/3;
-        if(iteration >= original.length) clearInterval(interval);
-    },30);
-});
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff9c';
+            ctx.font = fontSize + 'px monospace';
 
-// -------------------- Fade-in Scroll + Dynamic Background --------------------
-const hero = document.querySelector(".hero");
-const projects = document.querySelector(".projects");
-const footer = document.querySelector("footer");
-function fadeInSections(){
-    hero.style.opacity="1";
-    hero.style.transform="translateY(0)";
-    setTimeout(()=>{ 
-        projects.style.opacity="1"; 
-        projects.style.transform="translateY(0)";
-        projects.style.background="linear-gradient(to right, #000, #001f33)";
-    },500);
-    setTimeout(()=>{ 
-        footer.style.opacity="1"; 
-        footer.style.transform="translateY(0)"; 
-        footer.style.background="linear-gradient(to right, #000, #000)";
-    },1000);
-}
-</script>
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 33);
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // ==================== NEWSLETTER HANDLER ==================== 
+        function handleNewsletter(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing! Check your email soon.');
+            e.target.reset();
+            return false;
+        }
+
+        // ==================== SMOOTH SCROLL ==================== 
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
